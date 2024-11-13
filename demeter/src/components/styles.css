@@ -1,0 +1,135 @@
+/* Global reset for margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Added box-sizing for easier layout management */
+}
+
+/* Background container covering the entire viewport */
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensures full viewport height */
+  background-color: #000033; /* Default background color */
+  overflow: hidden; /* Prevents overflow issues */
+}
+
+/* Position and styling for animated background layers */
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stars {
+  background: #000
+    url("/Users/elizabethchanda/Desktop/Coding Projects /Demeter/demeter/assets/stars.png")
+    repeat top center;
+  z-index: 0; /* Background layer */
+}
+
+.twinkling {
+  background: transparent
+    url("/Users/elizabethchanda/Desktop/Coding Projects /Demeter/demeter/assets/twinkling.png")
+    repeat top center;
+  z-index: 1; /* Slightly above stars */
+  animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+  background: transparent
+    url("/Users/elizabethchanda/Desktop/Coding Projects /Demeter/demeter/assets/clouds.png")
+    repeat top center;
+  z-index: 2; /* Above twinkling */
+  opacity: 0.4; /* Slight transparency for a misty effect */
+  animation: move-clouds-back 200s linear infinite;
+}
+
+/* Keyframe animations */
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+/* General body styles */
+body {
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Content container */
+.container {
+  margin-top: 20px;
+  z-index: 3; /* Ensures the content appears above the background */
+  position: relative;
+}
+
+/* Styling for specific elements */
+.character-creation,
+.planets {
+  padding: 15px;
+  background: #1a1a50;
+  border-radius: 8px;
+}
+
+.locator,
+.tracker,
+.learning-resources {
+  background: #0d0d33;
+  color: #b3c6ff;
+}
+
+.service-item {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.service-item h4 {
+  margin: 0;
+}
+
+.service-item p {
+  margin: 5px 0;
+}
+
+/* Title Styling */
+.title h1 {
+  font-size: 36px;
+  font-family: "Lato", sans-serif;
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #ffffff;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-text-fill-color: transparent;
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+  position: relative;
+  z-index: 3; /* Ensures title is on top of all layers */
+}
